@@ -10,7 +10,6 @@ function App() {
 
         <p>The gallery goes here!</p>
         <GalleryList/>
-        <img src="images/goat_small.jpg"/>
       </div>
     );
 }

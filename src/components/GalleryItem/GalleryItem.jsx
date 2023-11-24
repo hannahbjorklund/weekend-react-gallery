@@ -1,13 +1,34 @@
 import './GalleryItem.css';
 import axios from 'axios';
+import {useState} from 'react';
 
 function GalleryItem({item, getGalleryItems}){
+    let [isToggledDesc, setIsToggledDesc] = useState(false);
+
+    //Toggle the image upon click
+    const toggleDescription = () => {
+        setIsToggledDesc(!isToggledDesc);
+    }
+
+    const displayDescription = () => {
+        if(isToggledDesc){
+            return (
+                <p data-testid='description'>
+                    {item.description}
+                </p>
+            )
+        } else {
+            return (
+                <img height={100} width={100} src={`${item.url}`}/>
+            )
+        }
+    }
 
     const likeItem = () => {
-        // Make a PUT request
+        // Make a PUT request to update Like count
         axios({
             method: 'PUT',
-            url: `/gallery/${item.id}`
+            url: `/gallery/like/${item.id}`
         }).then((response) => {
             console.log("PUT request successful");
             getGalleryItems();
@@ -18,12 +39,11 @@ function GalleryItem({item, getGalleryItems}){
 
     return (
         <div data-testid='galleryItem'>
-            <div data-testid='toggle'>
-                <img height={100} width={100} src={`${item.url}`}/>
-
+            <p>{item.title}</p>
+            <div data-testid='toggle' onClick={toggleDescription}>
+                {displayDescription()}
             </div>
-            {/* <p data-testid='description'> */}
-
+            <p>Likes: {item.likes}</p>
             <button onClick={likeItem} data-testid='like'>Like</button>
         </div>
     )
