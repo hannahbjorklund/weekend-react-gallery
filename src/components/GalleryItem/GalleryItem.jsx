@@ -13,13 +13,17 @@ function GalleryItem({item, getGalleryItems}){
     const displayDescription = () => {
         if(isToggledDesc){
             return (
-                <p data-testid='description'>
-                    {item.description}
-                </p>
+                <div className='innerBox'>
+                    <p data-testid='description'>
+                        {item.description}
+                    </p>
+                </div>
             )
         } else {
             return (
-                <img height={100} width={100} src={`${item.url}`}/>
+                <div className='innerBox'>
+                    <img height={100} width={100} src={`${item.url}`}/>
+                </div>
             )
         }
     }
@@ -38,13 +42,12 @@ function GalleryItem({item, getGalleryItems}){
     }
 
     return (
-        <div data-testid='galleryItem'>
+        <div data-testid='galleryItem' className='itemBox'>
             <p>{item.title}</p>
             <div data-testid='toggle' onClick={toggleDescription}>
                 {displayDescription()}
             </div>
-            <p>Likes: {item.likes}</p>
-            <button onClick={likeItem} data-testid='like'>Like</button>
+            <p className='likes'> <button onClick={likeItem} data-testid='like'>Like</button>    Likes: {item.likes} </p>
         </div>
     )
 }

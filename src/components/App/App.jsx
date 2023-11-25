@@ -1,14 +1,11 @@
 import React from 'react';
 import GalleryList from '../GalleryList/GalleryList';
+import Header from '../Header/Header.jsx';
 
 function App() {
     return (
       <div data-testid='app'>
-        <header>
-          <h1>React Gallery</h1>
-        </header>
-
-        <p>The gallery goes here!</p>
+        <Header/>
         <GalleryList/>
       </div>
     );

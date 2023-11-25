@@ -1,0 +1,33 @@
+.innerBox img {
+    overflow-wrap: break-word;
+    background-color: lightgray;
+    width: 20rem;
+    border-color: black;
+    height: 20rem;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    justify-content: center;
+    display: flex;
+}
+
+.itemBox {
+    border: 2px solid gray;
+    border-radius: 5px;
+    height: 30rem;
+    width: 25rem;
+    justify-content: center;
+    
+}
+
+img{
+    width: auto;
+
+}
+
+p{
+    width: auto;
+    text-align: center;
+    overflow-wrap: break-word;  
+}
+
