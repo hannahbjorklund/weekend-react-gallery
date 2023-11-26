@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    background-color: aliceblue;
     position: absolute;
     left: 35%;
     top: 20%;

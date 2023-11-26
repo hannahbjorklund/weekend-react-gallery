@@ -1,6 +1,6 @@
 header{
     position: fixed;
-    background-color: skyblue;
+    background-color: rgba(103, 181, 247, 0.9);
     width: 100%;
     z-index: 6;
     display:flex;

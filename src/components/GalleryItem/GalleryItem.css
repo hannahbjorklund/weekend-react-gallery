@@ -1,13 +1,12 @@
 .innerBox img {
     overflow-wrap: break-word;
     width: 25rem;
-    border-color: black;
     height: 25rem;
     margin: 0 auto;
-    padding: 10px;
     position: relative;
     justify-content: center;
     display: flex;
+
 }
 
 .itemBox {
@@ -16,12 +15,14 @@
     height: 35rem;
     width: 30rem;
     justify-content: center;
+    box-shadow: 13px 13px rgba(226, 235, 242, 0.838);
+    margin: 0.5rem;
+    background-color: white;
     
 }
 
 img{
     width: relative;
-
 }
 
 p{
@@ -32,5 +33,19 @@ p{
 
 h2 {
     text-align: center;
+}
+
+.likeButton {
+    padding: 0.5rem;
+    width: 5rem;
+    margin-right: 1rem;
+    border-radius: 20px;
+    background-color: skyblue;
+}
+
+.deleteButton {
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    margin: 0.1rem;
 }
 

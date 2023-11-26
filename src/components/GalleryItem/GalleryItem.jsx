@@ -41,13 +41,28 @@ function GalleryItem({item, getGalleryItems}){
         })
     }
 
+    const deleteItem = () => {
+        // Make a DELETE request
+        if(confirm("Are you sure you want to delete?") == true){
+            axios({
+                method: 'DELETE',
+                url: `/gallery/${item.id}`
+            }).then((response) => {
+                console.log("DELETE request successful");
+                getGalleryItems();
+            }).catch((error) => {
+                console.log("Error in DELETE:", error);
+            })
+        }
+    }
+
     return (
         <div data-testid='galleryItem' className='itemBox'>
-            <h2>{item.title}</h2>
+            <button className='deleteButton' onClick={deleteItem}>✖️</button><h2>{item.title}</h2>
             <div data-testid='toggle' onClick={toggleDescription}>
                 {displayDescription()}
             </div>
-            <p className='likes'> <button onClick={likeItem} data-testid='like'>Like</button>    Likes: {item.likes} </p>
+            <p className='likes'> <button className='likeButton' onClick={likeItem} data-testid='like'>🖤 Like</button>Likes: {item.likes} </p>
         </div>
     )
 }
