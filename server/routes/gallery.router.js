@@ -25,7 +25,7 @@ router.put('/like/:id', (req, res) => {
 router.get('/', (req, res) => {
   const sqlQueryText = `
   SELECT * FROM "gallery"
-    ORDER BY "id";`;
+    ORDER BY "id" DESC;`;
 
   pool.query(sqlQueryText)
   .then((result) => {
@@ -35,5 +35,26 @@ router.get('/', (req, res) => {
     console.log("Error in GET:", error);
   })
 });
+
+// POST /gallery
+router.post('/', (req, res) => {
+  let newPost = req.body;
+
+  const sqlQueryText = `
+  INSERT INTO "gallery" ("title", "url", "description")
+    VALUES ($1, $2, $3);`;
+
+  const sqlValues = [newPost.title, newPost.url, newPost.description];
+
+  pool.query(sqlQueryText, sqlValues)
+  .then((result) => {
+    console.log("POST request succesful");
+    res.sendStatus(200);
+  }).catch((error) => {
+    console.log("Error in POST:", error);
+    res.sendStatus(500);
+  })
+  
+})
 
 module.exports = router;

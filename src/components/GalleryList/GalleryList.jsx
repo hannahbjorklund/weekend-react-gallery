@@ -1,29 +1,11 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import React from 'react';
 import GalleryItem from '../GalleryItem/GalleryItem';
 import './GalleryList.css'
 
-function GalleryList(){
-
-    let [galleryItems, setGalleryItems] = useState([]);
-    
-    useEffect(() => {getGalleryItems()}, []);
-
-    const getGalleryItems = () => {
-        axios({
-            method: 'GET',
-            url: '/gallery'
-        }).then((response) => {
-            console.log("GET request at /gallery");
-            setGalleryItems(response.data);
-        }).catch((error) => {
-            console.log("Error in GET request:", error);
-        })
-    }
-
+function GalleryList({items, getGalleryItems}){
     return (
         <div data-testid='galleryList' className='container'>
-            {galleryItems.map((item) => (
+            {items.map((item) => (
                 <GalleryItem key={item.id} item={item} getGalleryItems={getGalleryItems}/>
             ))}
         </div>

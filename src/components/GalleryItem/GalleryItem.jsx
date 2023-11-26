@@ -43,7 +43,7 @@ function GalleryItem({item, getGalleryItems}){
 
     return (
         <div data-testid='galleryItem' className='itemBox'>
-            <p>{item.title}</p>
+            <h2>{item.title}</h2>
             <div data-testid='toggle' onClick={toggleDescription}>
                 {displayDescription()}
             </div>

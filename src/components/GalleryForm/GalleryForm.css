@@ -1,0 +1,33 @@
+form {
+    display: flex;
+    position: fixed;
+    justify-content: left;
+    flex-flow: column;
+    top: 15%;
+    left: 4%;
+    border: 2px solid gray;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 5px;
+    width: 10rem;
+    box-shadow: 13px 13px rgba(226, 235, 242, 0.838);
+}
+
+input {
+    padding: 0.5rem;
+    font-size: larger;
+}
+
+label{
+    text-align: center;
+    padding: 1rem;
+}
+
+.submitButton {
+    padding: 0.5rem;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    background-color: skyblue;
+}
